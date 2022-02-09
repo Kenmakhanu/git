@@ -1,0 +1,640 @@
+-----------------------------------------------
+Landmak Technology  + 1 437 215 2483
+----------------------------------------------
+Git and GitHub Administration
+----------------------------------------------
+
+https://github.com
+
+Git --> Distributed Version Control systems. DVCS
+
+GitHub - MS
+GitLab
+BitBucket (Stash) - A
+
+
+SVN --> Sub Version
+CVS --> Concurrent Version system
+TFS --> Team Foundation Server
+
+IQ: As a DevOps Engineer, what are your roles & responsilities in Git?
+    I create repository and teams for new onboarded projects
+    I add users to team and grant required access 
+
+1. Create an organisation to manage Teams and repositories.
+   This usually  a one-time activity for a Business-Unit or organisation.
+   When future projects are onboarded we won't create new organisations
+
+2. Create repos in GitHub (ebay)
+      ebay-frontend
+    ebay-backend
+      ebay
+      
+      https://github.com/mylandmarktech-ebay/ebay.git        # repo url
+   
+    private repos:
+       no has read or write access
+    Public Repo: 
+       by default everyone has read access
+     only authorise persons can update the code
+    
+
+3. Create a Team (ebay-devteam)
+
+        https://github.com/orgs/mylandmarktechs/teams/ebay-team   # team rul
+    
+    create or import share repos granting required permissions
+
+4. Add users to the team
+
+5. Provide/Grant repo access to the team
+
+
+GitHub - CE
+GHE    - EE
+
+https://ghe.mss.com
+https://ghe.aa.com
+
+Git Installations
+-----------------
+Pre Requisite Software Download/ Registration :
+  
+  Install git bash @ https://git-scm.com/downloads
+
+# Method 1
+#Login as a root user
+
+   sudo su - 
+
+$ sudo yum install git-all
+
+# Method 2
+##Change dir to /opt
+# git is written in C# Language
+cd /opt
+##The below command will download and install all required development libraries to your system.
+yum groupinstall "Development Tools" -y
+yum install gettext-devel openssl-devel perl-CPAN perl-devel zlib-devel curl-devel -y
+yum install wget tar -y
+##Open below URL and select the specific version and right click on that and click on Copy Link ##Address, then execute the wget command.
+##https://github.com/git/git/releases
+wget https://github.com/git/git/archive/v2.29.2.tar.gz  -O git-bash.tar.gz
+tar -zxf git-bash.tar.gz
+cd git-2.29.2
+make configure
+./configure --prefix=/usr/local
+##make install command will copy the built program, and its libraries and documentation, to the correct locations.
+make install
+
+git --version
+
+git config --global user.name "Simon Legah"
+git config --global user.email "legah2000@gmail.com"
+git config --global --list
+
+
+cd ~/Desktop  --> windows
+
+mkdir ebay   --> Linux  
+
+mkdir project-ebay
+cd ebay
+
+git init          # to initialised a git empty repository
+git status        # to track files
+git add           # move files to staging area from working area
+git commit -m     # move files to the local repository FROM STAGING AREA
+                  # good commit message for tracking changes/authors 
+
+git log
+
+git show cID
+
+Dev-Ops = SME
+
+git commit -a -m "updated user.java file"
+
+working area                staging            Local Repo      remote repo SCM
+-----------                --------            ----------      -----------------
+untracked files              add                commit cID            push
+users.java       
+db.py
+monitor.sh            
+
+
+
+
+
+
+default branch -- master
+git branch -M master
+git remote add eb https://github.com/LandmakTechnology/git.git
+git remote -v  # List REMOTE REPO mapping details
+git remote remove eb
+
+git push -u eb master
+
+What is the difference between Git & Github
+Git is an open source Distributed Version Control System(DVCS) which records
+changes made to files laying emphasis on speed, data integrity, and 
+distributed, non-linear workflows  
+
+Github is a hosted  repo (UI)  for git or an open source SCM tools
+
+Head is a pointer that points to the current branch and latest commit
+
+git log # list number of commits
+
+git show # show changes in each commit
+
+git commit -a -m "updated"
+
+A problem occurs with a new commit how can that be fix?
+  
+  git revert  cID    # git revert remove files from the local repo
+  git push eb master # will remove reverted files/lines in the remote repo 
+                     # this syn local with remote repository
+
+  git reset cID      # Move files from staging area to working area              
+   
+IQ: Can I revert a particular commitID? no
+
+========================================================================
+Install GIT on Windows : Text Guide
+This guide will show you how to install Git on Windows.
+
+Prerequisites
+
+Administrator privileges
+
+Access to a command-line
+
+Internet Access
+
+Download Git for Windows
+
+1. Browse to the official Git website: https://git-scm.com/downloads
+2. Click the download link for Windows and allow the download to complete.
+
+
+
+Extract and Launch Git Installer
+3. Browse to the download location (or use the download shortcut in your browser). Double-click the file to extract and launch the installer.
+
+4. Allow the app to make changes to your device by clicking Yes on the User Account Control dialog that opens.
+
+5. Review the GNU General Public License, and when you’re ready to install, click Next.
+
+6. The installer will ask you for an installation location. Leave the default, unless you have reason to change it, and click Next.
+
+7. A component selection screen will appear. Leave the defaults unless you have a specific need to change them and click Next.
+
+8. The installer will offer to create a start menu folder. Simply click Next.
+
+9. Select a text editor you’d like to use with Git. Go with the 'Vim' option.
+
+10. This installation step allows you to change the PATH environment. The PATH is the default set of directories included when you run a command from the command line.
+Choose Option "Use Git from Git Bash only".
+
+11. The next option relates to server certificates. Most users should use the default. If you’re working in an Active Directory environment, you may need to switch to Windows Store certificates. Click Next.
+
+12. The next selection converts line endings. It is recommended that you leave the default selection. This relates to the way data is formatted and changing this option may cause problems. Click Next.
+
+13. Choose the terminal emulator you want to use. The default MinTTY is recommended, for its features. Click Next.
+
+14. The default options are recommended, however, this step allows you to decide which extra option you would like to enable. If you use symbolic links, which are like shortcuts for the command line, tick the box. Click Next.
+
+15. Depending on the version of Git you’re installing, it may offer to install experimental features. At the time this article was written, the option to include interactive options was offered. Unless you are feeling adventurous, leave them unchecked and click Install.
+
+16. Once the installation is complete, tick the boxes to view the Release Notes or Launch Git Bash, then click Finish.
+
+
+
+
+
+How to Launch Git in Windows
+
+To launch Git Bash open the Windows Start menu, type git bash, and press Enter (or click the application icon).
+
+Now on Git bash, you can execute any GIT Command. To verify the version, execute the command-
+
+git --version
+======================================================
+Configure user info:
+
+git help
+git help <command>
+
+git config --global user.name "Simon Legah"
+git config --global user.email "legah2000@gmail.com"
+git config --list
+
+
+Create a git repository:
+pwd
+- make a directory
+cd into the directory.
+
+git init:
+ll or ls - the git directory is hidden
+ls -a to see the directory
+
+How to commit a file:
+
+  git commit
+
+- Go to the directory and make a blank file
+
+git status
+git add <file name>
+git add .
+
+git commit -m "message"
+
+git diff
+
+Git tracking and git logs:
+  - create a second file
+  git status
+  git log - shows last 10 commits with metadata
+  git log --author="kenmak"  => put name or email
+
+Git hub:
+  - go on git hub and create a repository
+  - clone the repository on your local machine
+
+  git clone -b main https://github.com/
+
+- create a new file in git hub
+- to sync the local and remote, use
+
+   git pull
+
+- now modify the file on your local
+
+ add and commit the file
+
+ git commit -am "commit message"    - only works on a tracked file
+
+git push
+
+- will be prompted to provide username and password.
+- This is not recommended and so you need to provide ssh keys.
+
+ssh keys:
+  - go to git hub account
+  - go to settings /ssh and gpg keys
+  - create new ssh key by following the instructions
+
+  After adding the key, test connectivity
+  - you will see a message on the console
+  - Go to terminal and use the below command to check connectivity
+
+  ssh -T git@github.com
+
+  ==============================================================
+
+
+a) Version control:
+Version control is a system that records changes to a file or set of files over time so that you can 
+recall specific versions later.
+If you are a graphic or web designer and want to keep every version of an
+image or layout (which you would most certainly want to), a Version Control
+System (VCS) is a very wise thing to use. It allows you to revert files back 
+to a previous state, revert the entire project back to a previous state, compare
+changes over time, see who last modified something that might be causing a
+problem, who introduced an issue and when, and more. Using a VCS also generally 
+means that if you screw things up or lose files, you can easily recover. In
+addition, you get all this for very little overhead.
+
+1. Local version Control Systems:
+  Many people’s version-control method of choice is to copy files into another
+  directory (perhaps a time-stamped directory, if they’re clever). This approach
+  is very common because it is so simple, but it is also incredibly error prone. 
+  It is easy to forget which directory you’re in and accidentally write to the wrong
+   file or copy over files you don’t mean to.
+
+2. Centralized Version Control Systems:
+  The next major issue that people encounter is that they need to collaborate
+with developers on other systems. To deal with this problem, Centralized Version Control Systems (CVCSs)
+ were developed. These systems, such as CVS,Subversion, and Perforce, have a single server that contains all the 
+ versionedfiles, and a number of clients that check out files from that central place. For many years, this has been 
+ the standard for version control.
+ This setup overs many advantages, especially over local VCSs. For example, everyone knows to a certain degree what 
+ everyone else on the project is doing. Administrators have fine-grained control over who can do what; 
+ and it’s far easier to administer a CVCS than it is to deal with local databases on every client.
+However, this setup also has some serious downsides. The most obvious is the single point of failure that the centralized
+ server represents.
+
+3. Distributed Version Control Systems:
+  This is where Distributed Version Control Systems (DVCSs) step in. In a DVCS
+(such as Git, Mercurial, Bazaar or Darcs), clients don’t just check out the latest
+snapshot of the files, they fully mirror the repository. Thus if any server dies,
+and these systems were collaborating via it, any of the client repositories can
+be copied back up to the server to restore it. Every clone is really a full backup
+of all the data.
+
+
+GIT:
+The major dierence between Git and any other VCS (Subversion and friends
+included) is the way Git thinks about its data. Conceptually, most other systems
+store information as a list of file-based changes. These systems (CVS, Subversion, Perforce, Bazaar, and so on) 
+think of the information they keep as a set of files and the changes made to each file over time.
+Git doesn’t think of or store its data this way. Instead, Git thinks of its data
+more like a set of snapshots of a miniature filesystem. Every time you commit,
+or save the state of your project in Git, it basically takes a picture of what all
+your files look like at that moment and stores a reference to that snapshot. To
+be eficient, if files have not changed, Git doesn’t store the file again, just a link
+to the previous identical file it has already stored. Git thinks about its data more
+like a stream of snapshots.
+
+Benefits of GIT:
+
+  a) Nearly Every Operation Is Local:
+Most operations in Git only need local files and resources to operate – generally
+no information is needed from another computer on your network. If you’re
+used to a CVCS where most operations have that network latency overhead,
+this aspect of Git will make you think that the gods of speed have blessed Git
+with unworldly powers. Because you have the entire history of the project right
+there on your local disk, most operations seem almost instantaneous.
+
+b) Git Has Integrity:
+  Everything in Git is check-summed before it is stored and is then referred to by
+that checksum. This means it’s impossible to change the contents of any file or
+directory without Git knowing about it. This functionality is built into Git at the
+lowest levels and is integral to its philosophy. You can’t lose information in
+transit or get file corruption without Git being able to detect it.
+
+c) Git Generally Only Adds Data: 
+  When you do actions in Git, nearly all of them only add data to the Git database.
+It is hard to get the system to do anything that is not undoable or to make it
+erase data in any way. As in any VCS, you can lose or mess up changes you haven’t committed yet; but after you 
+commit a snapshot into Git, it is very difficult to lose, especially if you regularly push your database to another 
+repository.
+
+The Three states:
+Git has three main states that your files can reside in.
+- committed, 
+- modified, 
+- staged. 
+Committed means that the data is safely stored in your local database. 
+Modified means that you have changed the file but have not committed it to your database yet. 
+Staged means that you have marked a modified file in its current version to go into
+your next commit snapshot.
+
+This leads us to the three main sections of a Git project: the Git directory, the
+working directory, and the staging area
+The Git directory is where Git stores the metadata and object database for
+your project. This is the most important part of Git, and it is what is copied
+when you clone a repository from another computer.
+The working directory is a single checkout of one version of the project.
+These files are pulled out of the compressed database in the Git directory and
+placed on disk for you to use or modify.
+The staging area is a file, generally contained in your Git directory, that
+stores information about what will go into your next commit. It’s sometimes referred to as the “index”,
+ but it’s also common to refer to it as the staging area.
+The basic Git workflow goes something like this:
+1. You modify files in your working directory.
+2. You stage the files, adding snapshots of them to your staging area.
+3. You do a commit, which takes the files as they are in the staging area and
+stores that snapshot permanently to your Git directory.
+
+
+2) Installing Git:
+# http://git-scm.com/download/
+  a) Linux : $ sudo yum install git-all
+             $ sudo apt-get install git-all
+
+  b) Mac OS:
+  C) Windows:
+
+First time set up:
+Git comes with a tool called git config that lets you get and set configuration variables that control all 
+aspects of how Git looks and operates.
+
+a) Your Identity:
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+
+b) Checking your settings:
+$ git config --list
+$ git config user.name 
+
+c) Getting help:
+$ git help <verb>    $ git help config
+$ git <verb> --help
+$ man git-<verb>
+
+3) Git Basics:
+
+  a) Getting a Git Repository:
+You can get a Git project using two main approaches. The first takes an existing
+project or directory and imports it into Git. The second clones an existing Git
+repository from another server.
+ i) Initializing a Repository in an Existing Directory:
+#$ git init
+  This creates a new subdirectory named .git that contains all of your necessary repository files 
+  – a Git repository skeleton. At this point, nothing in your project is tracked yet.
+
+ii) Cloning an Existing Repository:
+  If you want to get a copy of an existing Git repository – for example, a project
+you’d like to contribute to – the command you need is 
+#$ git clone [url]
+#$ git clone https://github.com/libgit2/libgit2 
+
+That creates a directory named “libgit2”, initializes a .git directory inside it,
+pulls down all the data for that repository, and checks out a working copy of the
+latest version. If you go into the new libgit2 directory, you’ll see the project
+files in there, ready to be worked on or used. If you want to clone the repository
+into a directory named something other than “libgit2”, you can specify that as
+the next command-line option
+
+#$ git clone https://github.com/libgit2/libgit2 mylibgit
+
+b) Creating the history: commits
+Each file in your working directory can be in one of two states= tracked or untracked. 
+Tracked files are files that were in the last snapshot; they can be unmodified, modified, or staged. 
+Untracked files are everything else – any files in your working directory that were not in your last snapshot and are
+not in your staging area. When you first clone a repository, all of your files will be tracked and unmodified because 
+Git just checked them out and you haven’t edited anything.
+As you edit files, Git sees them as modified, because you’ve changed them
+since your last commit. You stage these modified files and then commit all your
+staged changes, and the cycle repeats
+
+Git constructs the history of the repository with commits. A commit is a full snapshot of the repository, that is 
+saved in the database. Every state of the files that are committed, will be recoverable later at any moment.
+
+When doing a commit, we have to choose which files are going to be committed; not all the repository has to be committed
+ necessarily. This process is called staging, where files are added to the index. The Git index is where the data that 
+ is going to be saved in the commit is stored temporarily, until the commit is done.
+
+Let’s see how it works.
+
+We are going to create a file and add some content to it, for example:
+
+#echo 'My first commit!' > README.txt
+Adding this file, the status of the repository has changed, since a new file has been created in the working directory. 
+i) Checking the status of your files:
+
+#git status
+
+What Git is saying is “you have a new file in the repository directory, but this file is not yet selected to be committed“.
+
+If we want to include this file the commit, remember that it has to be added to the index. This is made with the add command, 
+as Git suggests in the output of status 
+
+ii) Tracking new files:
+#git add README.txt
+
+Now, we can do the commit!
+
+iii) Staging new files:
+
+#git commit
+Now, the default text editor will be shown, where we have to type the commit message, and then save. 
+If we leave the message empty, the commit will be aborted.
+
+Additionally, we can use the shorthand version with -m flag, specifying the commit message inline,
+
+#git commit -m 'Commit message for first commit!'
+We can add all the files of the current directory, recursively, to the index, with .:
+
+#git add .
+Note that the following:
+
+echo 'Second commit!' > README.txt
+git add README.txt
+echo 'Or is it the third?' > README.txt
+git commit -m 'Another commit'
+Would commit the file with 'Second commit!' content, because it was the one added to the index, and then we changed the 
+file of the working directory, not the one added to staging area. To commit the latest change, we would have to add again 
+the file to the index, being the first added file overwritten.
+
+Git identifies each commit uniquely using SHA1 hash function, based on the contents of the committed files. 
+So, each commit is identified with a 40 character-long hexadecimal string, like the following, 
+for example: de5aeb426b3773ee3f1f25a85f471750d127edfe. Take into account that the commit message, 
+commit date, or any other variable rather than the committed files’ content (and size), are not included in the hash 
+calculation.
+
+iv) Staging Modified Files:
+ Let’s change a file that was already tracked. If you change a previously tracked
+file called CONTRIBUTING.md and then run your git status command again, file appears under a section named “Changes not
+staged for commit” – which means that a file that is tracked has been modified in the working directory but not yet staged. 
+To stage it, you run the git add command. git add is a multipurpose command – you use it to begin tracking new files, 
+to stage files, and to do other things like marking merge-conflicted files as resolved.
+
+. If you modify a file after you run git add, you have
+to run git add again to stage the latest version of the file:
+
+v) Short Status:
+ While the git status output is pretty comprehensive, it’s also quite wordy. Git also has a short status flag so you 
+ can see your changes in a more compact way.
+ #$ git status -s 
+ #$ git status --short 
+
+New files that aren’t tracked have a ?? next to them, new files that have
+been added to the staging area have an A, modified files have an M.
+
+vi) Viewing the history:
+ Git is able to show the history of the repository. 
+
+# $ git log
+If you try it, you will see that the output is not very nice. The log command has many flags available to draw pretty 
+graphs. Here’s a suggestion for using this command through this guide, even if graphs are shown for each scenario
+
+# $ git log --all --graph --decorate --oneline
+If you want, you can omit the --oneline flag for showing the full information of each commit.  
+
+# $ git log -p -2
+options -p, which shows the difference introduced in each commit. You can also use -2, which limits the output to only the
+last two entries
+# $ git log --stat
+# $ git log --pretty=oneline
+# $ git log --author="kenmak"  => put name or email
+vi) Ignoring Files:
+Often, you’ll have a class of files that you don’t want Git to automatically add or
+even show you as being untracked. These are generally automatically generated files such as log files or files 
+produced by your build system. In such cases, you can create a file listing patterns to match them named .gitignore. 
+Here is an example .gitignore file;
+
+. Setting up a .gitignore file before you get going is generally a good idea
+so you don’t accidentally commit files that you really don’t want in your Git
+repository.
+The rules for the patterns you can put in the .gitignore file are as follows:
+• Blank lines or lines starting with # are ignored.
+• Standard glob patterns work.
+• You can start patterns with a forward slash (/) to avoid recursivity.
+• You can end patterns with a forward slash (/) to specify a directory.
+• You can negate a pattern by starting it with an exclamation point (!).
+    Here is another example .gitignore file:
+     # no .a files
+     *.a
+     # but do track lib.a, even though you're ignoring .a files above
+    !lib.a
+    # only ignore the TODO file in the current directory, not subdir/TODO
+    /TODO
+    # ignore all files in the build/ directory
+    build/
+    # ignore doc/notes.txt, but not doc/server/arch.txt
+    doc/*.txt
+    # ignore all .pdf files in the doc/ directory
+    doc/**/*.pd
+
+vii) Viewing Your Staged and Unstaged Changes:
+  To see what you’ve changed but not yet staged, type git diff with no other arguments.
+
+  #$ git diff
+That command compares what is in your working directory with what is in
+your staging area. The result tells you the changes you’ve made that you haven’t yet staged.
+If you want to see what you’ve staged that will go into your next commit, you
+can use
+
+#$ git diff --staged. 
+This command compares your staged changes to your last commit.
+It’s important to note that git diff by itself doesn’t show all changes
+made since your last commit – only changes that are still unstaged. This can be
+confusing, because if you’ve staged all of your changes, git diff will give you
+no output.
+
+viii) Skipping the Staging Area:
+Although it can be amazingly useful for crafting commits exactly how you want
+them, the staging area is sometimes a bit more complex than you need in your
+workflow. If you want to skip the staging area, Git provides a simple shortcut.
+Adding the -a option to the git commit command makes Git automatically
+stage every file that is already tracked before doing the commit, letting you skip
+the git add part.
+
+#$ git commit -a -m "commit message" or -am
+
+Removing Files:
+ To remove a file from Git, you have to remove it from your tracked files (more
+accurately, remove it from your staging area) and then commit. The git rm
+command does that, and also removes the file from your working directory so
+you don’t see it as an untracked file the next time around.
+If you simply remove the file from your working directory, it shows up under
+the “Changed but not updated” (that is, unstaged) area of your git status
+output
+ # $ rm project  -----if you use this, the file will still show up under the changed but not updated.
+ 
+ # $ git rm projects - The next time you commit, the file will be gone and no longer tracked.
+
+ Moving / renaming files:
+  # $ git mv project.md project
+
+Undoing things:
+One of the common undos takes place when you commit too early and possibly forget to add some files, 
+or you mess up your commit message. If you want to try that commit again, you can run commit with the --amend option.
+# $ git commit --amend  
+
+Unstaging a staged file:
+For example, let’s say you’ve changed two files and want to commit them as
+two separate changes, but you accidentally type git add * and stage them
+both. How can you unstage one of the two?
+  # $ git reset HEAD <FILE NAME>
+
+Unmodifying a Modified File:
+What if you realize that you don’t want to keep your changes to the CONTRIBUTING.md file? How can you easily 
+unmodify it – revert it back to what it looked like when you last committed   
+
+# $ git checkout -- <file name>
